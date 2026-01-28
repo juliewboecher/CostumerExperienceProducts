@@ -11,7 +11,7 @@ function initApp() {
 
 // ======== OPGAVE 2 ==========
 // tjekker om console virker
-console.log("Tjekker om console virker");
+/*console.log("Tjekker om console virker");
 
 // ======== OPGAVE 3 ==========
 // Tilføjer string, number og boolean. Typeof viser hvilken type variabel det er
@@ -36,7 +36,7 @@ const html = `
 </div>
 `;
 // fortæller hvilken status produktet har og tilpasser farven
-testSection.insertAdjacentHTML("beforeend", `<p style="color: green;">${productTitle} er desværre ikke på lager!</p>${html}`);
+testSection.insertAdjacentHTML("beforeend", `<p style="color: green;">${productTitle} er på lager!</p>${html}`);
 }
 
 // Nye variabler
@@ -59,7 +59,7 @@ const html2 = `
 </div>
 `;
 // Fortæller status på produktet, og tilpasser farven
-testSection2.insertAdjacentHTML("beforeend", `<p style="color: red;">${productTitle2} er på lager!</p>${html2}`);
+testSection2.insertAdjacentHTML("beforeend", `<p style="color: red;">${productTitle2} er desværre ikke på lager!</p>${html2}`);
 }
 
 // ========= OPGAVE 4 =========
@@ -83,4 +83,106 @@ if (productPrice < productPrice2) {
 } else {
   console.log(`${productTitle2} er billigst og koster ${productPrice2} kr.`);
 }
+*/
+
+// ========== OPGAVE 5 ===========
+// Del 1
+const object = {
+  key: "value",
+  anotherKey: 123
+};
+
+// Del 2
+const product1 = {
+  title: "Fjallraven - Foldsack No. 1 Backpack",
+  price: 849,
+  inStock: true,
+  image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+  description: "Your perfect pack for everyday use and walks in the city.",
+  category: "Bags"
+};
+
+const product2 = {
+  title: "Mens Casual Premium Slim Fit T-Shirts",
+  price: 179,
+  inStock: true,
+  image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
+  description: "Slim-fit, casual t-shirt for men.",
+  category: "Fashion",
+};
+
+// Del 6
+const product3 = {
+  title: "Mens Cotton Jacket",
+  price: 299,
+  inStock: false,
+  image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
+  description: "Stylish and comfortable cotton jacket for men.",
+  category: "Fashion",
+};
+
+// Vis produktet i test sektionen
+console.log(product1);
+console.log(product2);
+console.log(product3);
+
+// Del 3
+console.log(product1.title+" koster "+product1.price+" kr.");
+console.log(product2.title+" koster "+product2.price+" kr.");
+
+// Del 5
+// Vis "På lager" eller "Udsolgt"
+let stockText;
+let stockClass;
+if (product1.inStock) {
+  stockText = "På lager";
+  stockClass = "in-stock";
+} else {
+  stockText = "Udsolgt";
+  stockClass = "out-of-stock";
+}
+
+// Del 4
+// Opretter produkt sektionen
+const html = /*html*/`
+  <article class="product-card">
+  <img src="${product1.image}" class="product-image">
+  <div class="product-info">
+    <h2 class="product-name">${product1.title}</h2>
+    <p class="product-description">${product1.description}</p>
+    <p class="product-price">${product1.price} kr.</p>
+    <span class="product-stock ${stockClass}">${stockText}</span>
+  </div>
+</article>
+`;
+document.querySelector("#test").insertAdjacentHTML("beforeend", html);
+
+// Del 6
+// Tilføj product 2 til test sektionen
+const html2 = /*html*/ `
+  <article class="product-card">
+  <img src="${product2.image}" class="product-image">
+  <div class="product-info">
+    <h2 class="product-name">${product2.title}</h2>
+    <p class="product-description">${product2.description}</p>
+    <p class="product-price">${product2.price} kr.</p>
+    <span class="product-stock ${stockClass}">${stockText}</span>
+  </div>
+</article>
+`;
+document.querySelector("#test").insertAdjacentHTML("beforeend", html2);
+
+// Tilføj product 3 til test sektionen
+const html3 = /*html*/ `
+  <article class="product-card">
+  <img src="${product3.image}" class="product-image">
+  <div class="product-info">
+    <h2 class="product-name">${product3.title}</h2>
+    <p class="product-description">${product3.description}</p>
+    <p class="product-price">${product3.price} kr.</p>
+    <span class="product-stock ${stockClass}">${stockText}</span>
+  </div>
+</article>
+`;
+document.querySelector("#test").insertAdjacentHTML("beforeend", html3);
 
